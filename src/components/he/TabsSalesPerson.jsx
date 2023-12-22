@@ -42,12 +42,13 @@ const OrdersTable = () => {
     try {
       // Make an HTTP request to update the subcategory
       const response = await axios.put(
-        `${API_BASE_URL}/api/article/category/add/${editCategoryId}`,
+        `${API_BASE_URL}/api/category/edit/${editCategoryId}`,
         {
           // categoryId: editCategoryId,
-          subcategory: editSubcategory,
+          category: editSubcategory,
         }
       );
+      console.log(response.data);
       toast({
         title: "Updated",
         description: "Subcategory Updated Successfully.",
@@ -58,7 +59,7 @@ const OrdersTable = () => {
 
       // // After successfully updating, fetch the updated data from the server
       const updatedDataResponse = await axios.get(
-        `${API_BASE_URL}/api/article/category/get`
+        `${API_BASE_URL}/api/category`
       );
       const updatedData = updatedDataResponse.data;
 
@@ -140,7 +141,7 @@ const OrdersTable = () => {
                   size="sm"
                   ml={2}
                   onClick={() =>
-                    handleEditSubcategory(category._id, category.subcategory)
+                    handleEditSubcategory(category._id, category.category)
                   }
                   style={{ display: "flex", float: "right" }}
                 />
