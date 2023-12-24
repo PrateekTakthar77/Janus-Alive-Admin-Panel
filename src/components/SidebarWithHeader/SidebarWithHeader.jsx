@@ -50,7 +50,7 @@ import { AdminState } from "../context/context";
 const LinkItems = [
   { name: "Home", icon: FiHome, link: "/" },
   // { name: "Manage Products", icon: MdShoppingCartCheckout, link: "/products" },
-  { name: "Manage Articles", icon: MdOutlineManageSearch, link: "/articles" },
+  { name: "Manage Products", icon: MdOutlineManageSearch, link: "/articles" },
   { name: "Manage category", icon: MdOutlineCreate, link: "/category" },
   // { name: "Manage Category", icon: FiUserPlus, link: "/singlearticle" },
   // { name: "edit", icon: FiUserPlus, link: "/edit/:id" },

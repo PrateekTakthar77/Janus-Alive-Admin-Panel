@@ -32,10 +32,10 @@ const UserTable = () => {
   const [sortCriteria, setSortCriteria] = useState("createdAt");
   const [sortOrder, setSortOrder] = useState("desc");
 
-  const filteredArticles = article.filter((news) => {
-    const title = (news.title || "").toString(); // Convert to string, handle null or undefined
-    const category = (news.category || "").toString(); // Convert to string, handle null or undefined
-    const subcategory = (news.subcategory || "").toString(); // Convert to string, handle null or undefined
+  const filteredArticles = article.filter((product) => {
+    const title = (product.address || "").toString(); // Convert to string, handle null or undefined
+    const category = (product.category || "").toString(); // Convert to string, handle null or undefined
+    const subcategory = (product.city || "").toString(); // Convert to string, handle null or undefined
 
     const searchString = searchQuery.toLowerCase();
 
