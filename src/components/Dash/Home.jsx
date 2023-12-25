@@ -12,6 +12,7 @@ import {
   RadioGroup,
   Text,
   Button,
+  Textarea,
 } from "@chakra-ui/react";
 import { AdminState } from "../context/context";
 
@@ -27,6 +28,8 @@ function HomeDashboard() {
   const [seotitle, Setseotitle] = useState("");
   const [seodescription, Setseodescription] = useState("");
   const [urlparams, Seturlparams] = useState("");
+  const [illumination, setillumination] = useState("");
+  const [description, setdescription] = useState("");
   const toast = useToast();
   const { user, setUserAgain, API_BASE_URL } = AdminState();
   const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -779,6 +782,7 @@ function HomeDashboard() {
 
     Pondicherry: ["Karaikal", "Mahe", "Puducherry", "Yanam"],
   };
+  const Illumination = ["Select Value", "LED", "BL", "NL"];
   const handlePhotoChange = (e) => {
     setPhoto(e.target.files[0]);
   };
@@ -817,6 +821,8 @@ function HomeDashboard() {
       Setseodescription("");
       Seturlparams("");
       setSqft();
+      setdescription("");
+      setillumination("");
     };
     clearForm();
   };
@@ -847,11 +853,14 @@ function HomeDashboard() {
         address: title,
         category: selectedCategories,
         photo: secureUrl,
-        city: seotitle,
+        seotitle,
         heightwidth: seodescription,
         state: selectedState,
         price,
-        district: selectedDistrict,
+        city: selectedDistrict,
+        seodesc: urlparams,
+        illumination,
+        desc: description,
       });
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -875,6 +884,10 @@ function HomeDashboard() {
       setPrice(value);
     } else if (field === "sqft") {
       setSqft(value);
+    } else if (field === "illumination") {
+      setillumination(value);
+    } else if (field === "description") {
+      setdescription(value);
     }
   };
 
@@ -987,6 +1000,39 @@ function HomeDashboard() {
             value={seodescription}
             onChange={(e) => handleInputChange(e, "seodescription")}
           />
+          <Textarea
+            placeholder="Enter your description here..."
+            value={description}
+            onChange={(e) => handleInputChange(e, "description")}
+            padding="10px"
+            margin="10px 0"
+            border="1px solid #ccc"
+            borderRadius="3px"
+            size="lg"
+            resize="vertical"
+            minHeight="100px"
+            maxLength={200}
+          />
+          <Flex mb="4" alignItems="center">
+            <label style={{ marginRight: "10px", fontWeight: "bold" }}>
+              Illumination:
+            </label>
+            <select
+              value={illumination}
+              onChange={(e) => handleInputChange(e, "illumination")}
+              style={{
+                padding: "8px",
+                borderRadius: "3px",
+                border: "1px solid #ccc",
+              }}
+            >
+              {Illumination.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </Flex>
           <Flex mb="4" alignItems="center">
             <label style={{ marginRight: "10px", fontWeight: "bold" }}>
               State:
@@ -1007,9 +1053,10 @@ function HomeDashboard() {
               ))}
             </select>
           </Flex>
+
           <Flex mb="4" alignItems="center">
             <label style={{ marginRight: "10px", fontWeight: "bold" }}>
-              District:
+              City:
             </label>
             <select
               value={selectedDistrict}
@@ -1020,7 +1067,7 @@ function HomeDashboard() {
                 border: "1px solid #ccc",
               }}
             >
-              <option value="">select District </option>
+              <option value="">select City </option>
               {districts.map((district) => (
                 <option key={district} value={district}>
                   {district}
@@ -1028,6 +1075,30 @@ function HomeDashboard() {
               ))}
             </select>
           </Flex>
+          <Input
+            type="text"
+            id="title"
+            placeholder="Enter Seo Title"
+            width="100%"
+            padding="10px"
+            margin="10px 0"
+            border="1px solid #ccc"
+            borderRadius="3px"
+            value={seotitle}
+            onChange={(e) => handleInputChange(e, "seotitle")}
+          />
+          <Input
+            type="text"
+            id="title"
+            placeholder="Enter Seo Description"
+            width="100%"
+            padding="10px"
+            margin="10px 0"
+            border="1px solid #ccc"
+            borderRadius="3px"
+            value={urlparams}
+            onChange={(e) => handleInputChange(e, "urlparams")}
+          />
         </form>
 
         <Text fontSize="2xl" textAlign="center">
