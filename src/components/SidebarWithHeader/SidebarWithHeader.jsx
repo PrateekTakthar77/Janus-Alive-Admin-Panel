@@ -23,18 +23,7 @@ import {
   Image,
   Button,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-  FiBell,
-  FiChevronDown,
-  FiUserPlus,
-  FiList,
-} from "react-icons/fi";
+import { FiHome, FiMenu, FiChevronDown } from "react-icons/fi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { Link as RouteLink, useNavigate } from "react-router-dom";
 import {
@@ -49,32 +38,10 @@ import { AdminState } from "../context/context";
 
 const LinkItems = [
   { name: "Home", icon: FiHome, link: "/" },
-  // { name: "Manage Products", icon: MdShoppingCartCheckout, link: "/products" },
   { name: "Manage Products", icon: MdOutlineManageSearch, link: "/articles" },
   { name: "Manage category", icon: MdOutlineCreate, link: "/category" },
-  // { name: "Manage Category", icon: FiUserPlus, link: "/singlearticle" },
-  // { name: "edit", icon: FiUserPlus, link: "/edit/:id" },
-  // { name: "Manage Coins", icon: MdPriceChange, link: "/pricetable" },
-  // {
-  //   name: "Manage Making Charges",
-  //   icon: FaWeightHanging,
-  //   link: "/makingcharges",
-  // },
-  // {
-  //   name: "Book an appointment",
-  //   icon: FaListOl,
-  //   link: "/bookings",
-  // },
-  // {
-  //   name: "Custom orders",
-  //   icon: TbTruckDelivery,
-  //   link: "/customorders",
-  // },
-  // {
-  //   name: "Backup",
-  //   icon: TbTruckDelivery,
-  //   link: "/Backup",
-  // },
+  { name: "Add Blogs", icon: MdOutlineCreate, link: "/Addblogs" },
+  { name: "Manage Blogs", icon: MdOutlineCreate, link: "/ManageBlogs" },
 ];
 
 export default function SidebarWithHeader({ children, setLoggedIn }) {

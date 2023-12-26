@@ -9,6 +9,8 @@ import Fullnews from "./components/he/UpdatePerson";
 import AddCategoryAndSubcategoryForm from "./components/makingcharges/addCatSubcatform.js";
 import PremiumCharges from "./components/Premium/premium";
 import Edit from "./components/editArticle/Edit";
+import AddBlogs from "./components/Add-blogs/AddBlogs.jsx";
+import ManageBlogs from "./components/manage-blogs/Manage-blogs.jsx";
 
 function App() {
   const [initialLoad, setInitialLoad] = useState(true);
@@ -48,6 +50,8 @@ function App() {
                       element={<AddCategoryAndSubcategoryForm />}
                     />
                     <Route path="/edit/:id" element={<Edit />} />
+                    <Route path="/Addblogs" element={<AddBlogs />} />
+                    <Route path="/ManageBlogs" element={<ManageBlogs />} />
                   </>
                 ) : (
                   <>

@@ -16,6 +16,9 @@ import {
   Link,
   HStack, // Import HStack for horizontal alignment
   Text,
+  Stack,
+  InputGroup,
+  Input,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { FaTrash, FaEdit, FaSearch } from "react-icons/fa";
@@ -116,27 +119,99 @@ const UserTable = () => {
   };
 
   return (
-    <Box className="user-table-container">
-      <Box display="flex" alignItems="center">
+    // <Box className="user-table-container">
+    //   <Box display="flex" alignItems="center">
+    //     <Text>Total Products {sortedArticles.length}</Text>
+    //     <Center flex="1">
+    //       {/* Using flex="1" to allow the Heading to take remaining space */}
+    //       <Heading as="h1" size="lg" mb={4} mt={2}>
+    //         All Products
+    //       </Heading>
+    //     </Center>
+    //     <input
+    //       type="text"
+    //       placeholder="🔍 Search Products..."
+    //       value={searchQuery}
+    //       onChange={(e) => setSearchQuery(e.target.value)}
+    //       style={{ padding: "4px", marginLeft: "auto" }}
+    //     />
+    //   </Box>
+    //   {error ? (
+    //     <Box className="error-box">{error}</Box>
+    //   ) : (
+    //     <Table variant="striped" colorScheme="gray" size="md">
+    //       <Thead>
+    //         <Tr>
+    //           <Th>Address</Th>
+    //           <Th>Category</Th>
+    //           <Th>City</Th>
+    //           <Th>Created At</Th>
+    //           <Th>Actions</Th>
+    //         </Tr>
+    //       </Thead>
+    //       <Tbody>
+    //         {sortedArticles.map((product) => (
+    //           <Tr key={product._id}>
+    //             <Td>{product.address}</Td>
+    //             <Td>{product.category}</Td>
+    //             <Td>{product.city}</Td>
+    //             <Td>
+    //               {new Date(product.createdAt).toLocaleString("en-IN", {
+    //                 day: "numeric",
+    //                 month: "short",
+    //                 year: "numeric",
+    //                 hour: "numeric",
+    //                 minute: "numeric",
+    //                 hour12: true,
+    //               })}
+    //             </Td>
+    //             <Td>
+    //               <HStack>
+    //                 <IconButton
+    //                   icon={<FaTrash />}
+    //                   colorScheme="red"
+    //                   size="sm"
+    //                   onClick={() => handleDeleteArticle(product._id)}
+    //                 />
+    //                 {/* <RouterLink to={`/edit/${product._id}`}>
+    //                   <IconButton
+    //                     icon={<FaEdit />}
+    //                     backgroundColor={"#0a2351"}
+    //                     color={"white"}
+    //                     size="sm"
+    //                   />
+    //                 </RouterLink> */}
+    //               </HStack>
+    //             </Td>
+    //           </Tr>
+    //         ))}
+    //       </Tbody>
+    //       <Text mt="20px">Total Products Added {sortedArticles.length}</Text>
+    //     </Table>
+    //   )}
+    // </Box>
+    <Box className="user-table-container" p={4}>
+      <Stack spacing={4}>
         <Text>Total Products {sortedArticles.length}</Text>
-        <Center flex="1">
-          {/* Using flex="1" to allow the Heading to take remaining space */}
-          <Heading as="h1" size="lg" mb={4} mt={2}>
-            All Products
-          </Heading>
-        </Center>
-        <input
-          type="text"
-          placeholder="🔍 Search Products..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ padding: "4px", marginLeft: "auto" }}
-        />
-      </Box>
+        <Heading as="h1" size="lg">
+          All Products
+        </Heading>
+        <InputGroup>
+          <Input
+            type="text"
+            placeholder="🔍 Search Products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </InputGroup>
+      </Stack>
+
       {error ? (
-        <Box className="error-box">{error}</Box>
+        <Box className="error-box" mt={4}>
+          {error}
+        </Box>
       ) : (
-        <Table variant="striped" colorScheme="gray" size="md">
+        <Table variant="striped" colorScheme="gray" size="sm" mt={4}>
           <Thead>
             <Tr>
               <Th>Address</Th>
@@ -163,7 +238,7 @@ const UserTable = () => {
                   })}
                 </Td>
                 <Td>
-                  <HStack>
+                  <HStack spacing={2}>
                     <IconButton
                       icon={<FaTrash />}
                       colorScheme="red"
@@ -171,21 +246,21 @@ const UserTable = () => {
                       onClick={() => handleDeleteArticle(product._id)}
                     />
                     {/* <RouterLink to={`/edit/${product._id}`}>
-                      <IconButton
-                        icon={<FaEdit />}
-                        backgroundColor={"#0a2351"}
-                        color={"white"}
-                        size="sm"
-                      />
-                    </RouterLink> */}
+                  <IconButton
+                    icon={<FaEdit />}
+                    backgroundColor={"#0a2351"}
+                    color={"white"}
+                    size="sm"
+                  />
+                </RouterLink> */}
                   </HStack>
                 </Td>
               </Tr>
             ))}
           </Tbody>
-          <Text mt="20px">Total Products Added {sortedArticles.length}</Text>
         </Table>
       )}
+      <Text mt="4">Total Products Added {sortedArticles.length}</Text>
     </Box>
   );
 };
