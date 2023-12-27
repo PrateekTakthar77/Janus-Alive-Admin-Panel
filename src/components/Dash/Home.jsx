@@ -54,6 +54,7 @@ function HomeDashboard() {
         console.error("Error fetching categories:", error);
       });
   }, []);
+  // states and district array
   const states = [
     "Select State",
     "Andra Pradesh",
