@@ -1,6 +1,7 @@
 import React from "react";
 import news from "../../assets/news-report.png";
 import {
+  AvatarBadge,
   IconButton,
   Avatar,
   Box,
@@ -214,6 +215,9 @@ const MobileNav = ({ onOpen, setLoggedIn, ...rest }) => {
               _focus={{ boxShadow: "none" }}
             >
               <HStack color={"white"}>
+                <Avatar>
+                  <AvatarBadge boxSize="1.0em" bg="green.500" />
+                </Avatar>
                 {/* <Avatar size={"sm"} src={news} /> */}
                 <VStack
                   display={{ base: "none", md: "flex" }}
