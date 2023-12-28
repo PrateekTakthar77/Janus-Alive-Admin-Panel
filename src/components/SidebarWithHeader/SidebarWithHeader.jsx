@@ -25,6 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { FiHome, FiMenu, FiChevronDown } from "react-icons/fi";
 import { RiArticleLine } from "react-icons/ri";
+import { FaEdit } from "react-icons/fa";
 import { Link as RouteLink, useNavigate } from "react-router-dom";
 import { MdOutlineManageSearch, MdOutlineCreate } from "react-icons/md";
 import { AdminState } from "../context/context";
@@ -34,7 +35,7 @@ const LinkItems = [
   { name: "Manage Products", icon: MdOutlineManageSearch, link: "/articles" },
   { name: "Manage category", icon: MdOutlineCreate, link: "/category" },
   { name: "Add Blogs", icon: RiArticleLine, link: "/Addblogs" },
-  { name: "Manage Blogs", icon: MdOutlineCreate, link: "/ManageBlogs" },
+  { name: "Manage Blogs", icon: FaEdit, link: "/ManageBlogs" },
 ];
 
 export default function SidebarWithHeader({ children, setLoggedIn }) {

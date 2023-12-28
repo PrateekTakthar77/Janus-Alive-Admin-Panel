@@ -165,7 +165,7 @@ const OrdersTable = () => {
               colorScheme="teal"
               size="sm"
             >
-              Update Subcategory
+              Update Category
             </Button>
           </Box>
         )}
