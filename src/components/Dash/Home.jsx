@@ -853,7 +853,7 @@ function HomeDashboard() {
       uploadBlogData({
         address: title,
         category: selectedCategories,
-        photo: secureUrl,
+        image: secureUrl,
         seotitle,
         heightwidth: seodescription,
         state: selectedState,
