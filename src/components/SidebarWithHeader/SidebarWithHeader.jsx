@@ -24,30 +24,23 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FiHome, FiMenu, FiChevronDown } from "react-icons/fi";
-import { TbTruckDelivery } from "react-icons/tb";
+import { RiArticleLine } from "react-icons/ri";
 import { Link as RouteLink, useNavigate } from "react-router-dom";
-import {
-  MdShoppingCartCheckout,
-  MdPriceChange,
-  MdMonitorWeight,
-  MdOutlineManageSearch,
-  MdOutlineCreate,
-} from "react-icons/md";
-import { FaWeightHanging, FaListOl } from "react-icons/fa";
+import { MdOutlineManageSearch, MdOutlineCreate } from "react-icons/md";
 import { AdminState } from "../context/context";
 
 const LinkItems = [
   { name: "Home", icon: FiHome, link: "/" },
   { name: "Manage Products", icon: MdOutlineManageSearch, link: "/articles" },
   { name: "Manage category", icon: MdOutlineCreate, link: "/category" },
-  { name: "Add Blogs", icon: MdOutlineCreate, link: "/Addblogs" },
+  { name: "Add Blogs", icon: RiArticleLine, link: "/Addblogs" },
   { name: "Manage Blogs", icon: MdOutlineCreate, link: "/ManageBlogs" },
 ];
 
 export default function SidebarWithHeader({ children, setLoggedIn }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue("white", "gray.900")}>
+    <Box minH="100vh" bg={useColorModeValue("white", "black")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -81,9 +74,9 @@ const SidebarContent = ({ onClose, ...rest }) => {
     <Box
       color={useColorModeValue("white", "white")}
       transition="3s ease"
-      bg={useColorModeValue("gray.800", "gray.900")}
+      bg={"black"}
       borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      borderRightColor={"white"}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
@@ -182,7 +175,7 @@ const MobileNav = ({ onOpen, setLoggedIn, ...rest }) => {
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("gray.700", "gray.900")}
+      bg={"black"}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between", md: "flex-end" }}

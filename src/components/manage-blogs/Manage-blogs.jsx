@@ -174,7 +174,7 @@ const ManageBlogs = () => {
                     <RouterLink to={`/edit/${news._id}`}>
                       <IconButton
                         icon={<FaEdit />}
-                        backgroundColor={"#0a2351"}
+                        backgroundColor={"#000"}
                         color={"white"}
                         size="sm"
                       />

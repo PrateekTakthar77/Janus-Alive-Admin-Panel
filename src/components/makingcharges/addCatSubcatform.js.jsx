@@ -48,7 +48,7 @@ function AddCategoryAndSubcategoryForm() {
         onClick={handleAddCategoryAndSubcategory}
         marginTop={"20px"}
         style={{
-          backgroundColor: "#0a2351",
+          backgroundColor: "#C02222",
           color: "#fff",
           border: "none",
           padding: "10px 20px",

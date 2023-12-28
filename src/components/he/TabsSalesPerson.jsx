@@ -110,7 +110,7 @@ const OrdersTable = () => {
       <VStack spacing={4} align="stretch">
         <Button
           mt={4}
-          backgroundColor={"#0a2351"}
+          backgroundColor={"#C02222"}
           color={"white"}
           size="sm"
           rounded="md"
@@ -136,7 +136,7 @@ const OrdersTable = () => {
                 />
                 <IconButton
                   icon={<FaEdit />}
-                  backgroundColor={"#0a2351"}
+                  backgroundColor={"#000"}
                   color={"white"}
                   size="sm"
                   ml={2}
