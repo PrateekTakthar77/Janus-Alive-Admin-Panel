@@ -824,6 +824,8 @@ function HomeDashboard() {
       setSqft();
       setdescription("");
       setillumination("");
+      setPrice("");
+      setSqft("");
     };
     clearForm();
   };
@@ -862,6 +864,7 @@ function HomeDashboard() {
         seodesc: urlparams,
         illumination,
         desc: description,
+        totalsqft: sqft,
       });
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -992,7 +995,7 @@ function HomeDashboard() {
           <Input
             type="text"
             id="seodescription"
-            placeholder="Enter Height x Width"
+            placeholder="Enter Width x Height"
             width="100%"
             padding="10px"
             margin="10px 0"
