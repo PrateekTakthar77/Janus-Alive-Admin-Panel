@@ -783,7 +783,13 @@ function HomeDashboard() {
 
     Pondicherry: ["Karaikal", "Mahe", "Puducherry", "Yanam"],
   };
-  const Illumination = ["Select Value", "LED", "BL", "NL"];
+  const Illumination = [
+    "Select illumination",
+    "LED",
+    "Back Lit",
+    "Non Lit",
+    "Front Lit",
+  ];
   const handlePhotoChange = (e) => {
     setPhoto(e.target.files[0]);
   };
