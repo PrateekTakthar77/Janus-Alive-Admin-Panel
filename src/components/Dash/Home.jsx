@@ -822,7 +822,7 @@ function HomeDashboard() {
     }
     const clearForm = () => {
       setTitle("");
-      setSelectedCategories("");
+      // setSelectedCategories("");
       setPhoto(null);
       Setseotitle("");
       Setseodescription("");
