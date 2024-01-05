@@ -142,6 +142,7 @@ const UserTable = () => {
           <Thead>
             <Tr>
               <Th>Address</Th>
+              <Th>Illumination</Th>
               <Th>Category</Th>
               <Th>City</Th>
               <Th>Created At</Th>
@@ -152,8 +153,9 @@ const UserTable = () => {
             {sortedArticles.map((product) => (
               <Tr key={product._id}>
                 <Td>{product.address}</Td>
+                <Td>{product.illumination}</Td>
                 <Td>{product.category}</Td>
-                <Td>{product.city}</Td>
+                <Td>{product.state}</Td>
                 <Td>
                   {new Date(product.createdAt).toLocaleString("en-IN", {
                     day: "numeric",
