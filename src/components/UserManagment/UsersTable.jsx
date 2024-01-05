@@ -172,14 +172,14 @@ const UserTable = () => {
                       size="sm"
                       onClick={() => handleDeleteArticle(product._id)}
                     />
-                    <RouterLink to={`/editProduct/${product._id}`}>
+                    {/* <RouterLink to={`/editProduct/${product._id}`}>
                       <IconButton
                         icon={<FaEdit />}
                         backgroundColor={"#0a2351"}
                         color={"white"}
                         size="sm"
                       />
-                    </RouterLink>
+                    </RouterLink> */}
                   </HStack>
                 </Td>
               </Tr>
