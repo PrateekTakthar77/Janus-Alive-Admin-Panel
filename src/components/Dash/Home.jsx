@@ -29,6 +29,7 @@ function HomeDashboard() {
   const [seodescription, Setseodescription] = useState("");
   const [urlparams, Seturlparams] = useState("");
   const [illumination, setillumination] = useState("");
+  const [subcategory, Setsubcategory] = useState("");
   const [description, setdescription] = useState("");
   const toast = useToast();
   const { user, setUserAgain, API_BASE_URL } = AdminState();
@@ -790,6 +791,14 @@ function HomeDashboard() {
     "Non Lit",
     "Front Lit",
   ];
+  const Subcategory = [
+    "Select Subcategory",
+    "DIGITAL",
+    "UNIPOLE",
+    "BILLBOARD",
+    "DIGITAL BILLBOARD",
+    "DOOH",
+  ];
   const handlePhotoChange = (e) => {
     setPhoto(e.target.files[0]);
   };
@@ -871,6 +880,7 @@ function HomeDashboard() {
         illumination,
         desc: description,
         totalsqft: sqft,
+        subcat: subcategory,
       });
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -898,6 +908,8 @@ function HomeDashboard() {
       setillumination(value);
     } else if (field === "description") {
       setdescription(value);
+    } else if (field === "subcategory") {
+      Setsubcategory(value);
     }
   };
 
@@ -957,6 +969,26 @@ function HomeDashboard() {
               {categories.map((cat) => (
                 <option key={cat._id} value={cat.category}>
                   {cat.category}
+                </option>
+              ))}
+            </select>
+          </Flex>
+          <Flex mb="4" alignItems="center">
+            <label style={{ marginRight: "10px", fontWeight: "bold" }}>
+              Subcategory:
+            </label>
+            <select
+              value={subcategory}
+              onChange={(e) => handleInputChange(e, "subcategory")}
+              style={{
+                padding: "8px",
+                borderRadius: "3px",
+                border: "1px solid #ccc",
+              }}
+            >
+              {Subcategory.map((state) => (
+                <option key={state} value={state}>
+                  {state}
                 </option>
               ))}
             </select>
