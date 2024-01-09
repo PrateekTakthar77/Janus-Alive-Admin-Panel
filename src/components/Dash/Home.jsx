@@ -23,7 +23,7 @@ function HomeDashboard() {
   const [categories, setCategories] = useState([]);
   const [price, setPrice] = useState();
   const [sqft, setSqft] = useState();
-  const [title, setTitle] = useState("");
+  const [address, setaddress] = useState("");
   const [selectedCategories, setSelectedCategories] = useState("");
   const [seotitle, Setseotitle] = useState("");
   const [seodescription, Setseodescription] = useState("");
@@ -31,6 +31,8 @@ function HomeDashboard() {
   const [illumination, setillumination] = useState("");
   const [subcategory, Setsubcategory] = useState("");
   const [description, setdescription] = useState("");
+  const [title, setTitle] = useState("");
+  const [endvalue, setendvalue] = useState("");
   const toast = useToast();
   const { user, setUserAgain, API_BASE_URL } = AdminState();
   const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -868,7 +870,8 @@ function HomeDashboard() {
       console.log("Image uploaded:", response.data);
       const secureUrl = response.data.secure_url;
       uploadBlogData({
-        address: title,
+        address,
+        title,
         category: selectedCategories,
         image: secureUrl,
         seotitle,
@@ -881,6 +884,7 @@ function HomeDashboard() {
         desc: description,
         totalsqft: sqft,
         subcat: subcategory,
+        url: endvalue,
       });
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -910,6 +914,10 @@ function HomeDashboard() {
       setdescription(value);
     } else if (field === "subcategory") {
       Setsubcategory(value);
+    } else if (field === "address") {
+      setaddress(value);
+    } else if (field === "endvalue") {
+      setaddress(value);
     }
   };
 
@@ -997,6 +1005,18 @@ function HomeDashboard() {
             type="text"
             id="title"
             placeholder="Enter Address"
+            width="100%"
+            padding="10px"
+            margin="10px 0"
+            border="1px solid #ccc"
+            borderRadius="3px"
+            value={address}
+            onChange={(e) => handleInputChange(e, "address")}
+          />
+          <Input
+            type="text"
+            id="title"
+            placeholder="Enter Title"
             width="100%"
             padding="10px"
             margin="10px 0"
@@ -1140,6 +1160,18 @@ function HomeDashboard() {
             borderRadius="3px"
             value={urlparams}
             onChange={(e) => handleInputChange(e, "urlparams")}
+          />
+          <Input
+            type="text"
+            id="title"
+            placeholder="Enter URL"
+            width="100%"
+            padding="10px"
+            margin="10px 0"
+            border="1px solid #ccc"
+            borderRadius="3px"
+            value={endvalue}
+            onChange={(e) => handleInputChange(e, "endvalue")}
           />
         </form>
 
