@@ -917,7 +917,7 @@ function HomeDashboard() {
     } else if (field === "address") {
       setaddress(value);
     } else if (field === "endvalue") {
-      setaddress(value);
+      setendvalue(value);
     }
   };
 
