@@ -11,6 +11,9 @@ import PremiumCharges from "./components/Premium/premium";
 import Edit from "./components/editArticle/Edit";
 import AddBlogs from "./components/Add-blogs/AddBlogs.jsx";
 import ManageBlogs from "./components/manage-blogs/Manage-blogs.jsx";
+import EditProduct from "./components/editProducts/Edit.jsx";
+import AdminPanelHomePage from "./components/Dash/Homepage.jsx";
+import EditArticle from "./components/editArticle/Edit";
 
 function App() {
   const [initialLoad, setInitialLoad] = useState(true);
@@ -45,13 +48,15 @@ function App() {
                     <Route path="/category" element={<TabsSalesPerson />} />
                     <Route path="/Backup" element={<PremiumCharges />} />
                     <Route path="/singlearticle" element={<Fullnews />} />
+                    <Route path="/editProduct/:id" element={<EditProduct />} />
                     <Route
                       path="/addcategory"
                       element={<AddCategoryAndSubcategoryForm />}
                     />
-                    <Route path="/edit/:id" element={<Edit />} />
+                    <Route path="/editBlog/:id" element={<Edit />} />
                     <Route path="/Addblogs" element={<AddBlogs />} />
                     <Route path="/ManageBlogs" element={<ManageBlogs />} />
+                    <Route path="/HomePage" element={<AdminPanelHomePage />} />
                   </>
                 ) : (
                   <>
