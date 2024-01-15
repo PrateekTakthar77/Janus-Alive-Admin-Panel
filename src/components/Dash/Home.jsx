@@ -31,6 +31,7 @@ function HomeDashboard() {
   const [illumination, setillumination] = useState("");
   const [subcategory, Setsubcategory] = useState("");
   const [description, setdescription] = useState("");
+  const [urlcategory, seturlcategory] = useState("");
   const [title, setTitle] = useState("");
   const [endvalue, setendvalue] = useState("");
   const toast = useToast();
@@ -801,6 +802,15 @@ function HomeDashboard() {
     "DIGITAL BILLBOARD",
     "DOOH",
   ];
+  const urlcategorydata = [
+    "Select URL category",
+    "outdoor-advertising-agency",
+    "metro-advertising-agency",
+    "airport-branding-advertising-agency",
+    "inflight-branding-advertising-agency",
+    "mall-branding-advertising-agency",
+    "transit-media-advertising-agency",
+  ];
   const handlePhotoChange = (e) => {
     setPhoto(e.target.files[0]);
   };
@@ -885,6 +895,7 @@ function HomeDashboard() {
         totalsqft: sqft,
         subcat: subcategory,
         url: endvalue,
+        urlcat: urlcategory,
       });
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -918,6 +929,8 @@ function HomeDashboard() {
       setaddress(value);
     } else if (field === "endvalue") {
       setendvalue(value);
+    } else if (field === "urlcategory") {
+      seturlcategory(value);
     }
   };
 
@@ -995,6 +1008,26 @@ function HomeDashboard() {
               }}
             >
               {Subcategory.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </Flex>
+          <Flex mb="4" alignItems="center">
+            <label style={{ marginRight: "10px", fontWeight: "bold" }}>
+              URL Category:
+            </label>
+            <select
+              value={urlcategory}
+              onChange={(e) => handleInputChange(e, "urlcategory")}
+              style={{
+                padding: "8px",
+                borderRadius: "3px",
+                border: "1px solid #ccc",
+              }}
+            >
+              {urlcategorydata.map((state) => (
                 <option key={state} value={state}>
                   {state}
                 </option>
