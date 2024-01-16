@@ -1166,7 +1166,7 @@ function EditArticle() {
             border="1px solid #ccc"
             borderRadius="3px"
             value={title}
-            onChange={(e) => setTitle(e, "title")}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <Input
             type="number"
@@ -1178,7 +1178,7 @@ function EditArticle() {
             border="1px solid #ccc"
             borderRadius="3px"
             value={price}
-            onChange={(e) => setPrice(e, "price")}
+            onChange={(e) => setPrice(e.target.value)}
           />
           <Input
             type="number"
@@ -1190,7 +1190,7 @@ function EditArticle() {
             border="1px solid #ccc"
             borderRadius="3px"
             value={sqft}
-            onChange={(e) => setSqft(e, "sqft")}
+            onChange={(e) => setSqft(e.target.value)}
           />
 
           <Input
@@ -1203,12 +1203,12 @@ function EditArticle() {
             border="1px solid #ccc"
             borderRadius="3px"
             value={seodescription}
-            onChange={(e) => Setseodescription(e, "seodescription")}
+            onChange={(e) => Setseodescription(e.target.value)}
           />
           <Textarea
             placeholder="Enter your description here..."
             value={description}
-            onChange={(e) => setdescription(e, "description")}
+            onChange={(e) => setdescription(e.target.value)}
             padding="10px"
             margin="10px 0"
             border="1px solid #ccc"
@@ -1290,7 +1290,7 @@ function EditArticle() {
             border="1px solid #ccc"
             borderRadius="3px"
             value={seotitle}
-            onChange={(e) => Setseotitle(e, "seotitle")}
+            onChange={(e) => Setseotitle(e.target.value)}
           />
           <Input
             type="text"
@@ -1302,7 +1302,7 @@ function EditArticle() {
             border="1px solid #ccc"
             borderRadius="3px"
             value={urlparams}
-            onChange={(e) => Seturlparams(e, "urlparams")}
+            onChange={(e) => Seturlparams(e.target.value)}
           />
           <Input
             type="text"
@@ -1314,7 +1314,7 @@ function EditArticle() {
             border="1px solid #ccc"
             borderRadius="3px"
             value={endvalue}
-            onChange={(e) => setendvalue(e, "endvalue")}
+            onChange={(e) => setendvalue(e.target.value)}
           />
         </form>
 
