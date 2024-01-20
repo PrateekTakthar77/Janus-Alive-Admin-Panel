@@ -1338,7 +1338,7 @@ function EditArticle() {
           borderRadius="3px"
           cursor="pointer"
         >
-          Upload Article
+          Upload Edited Article
         </Button>
       </Box>
     </Box>
