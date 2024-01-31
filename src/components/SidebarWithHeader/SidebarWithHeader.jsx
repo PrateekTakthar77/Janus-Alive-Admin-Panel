@@ -37,7 +37,7 @@ const LinkItems = [
   { name: "Manage category", icon: MdOutlineCreate, link: "/category" },
   { name: "Add Blogs", icon: RiArticleLine, link: "/Addblogs" },
   { name: "Manage Blogs", icon: FaEdit, link: "/ManageBlogs" },
-  // { name: "Home Page", icon: FaEdit, link: "/HomePage" },
+  { name: "City & State", icon: MdOutlineCreate, link: "/City" },
 ];
 
 export default function SidebarWithHeader({ children, setLoggedIn }) {

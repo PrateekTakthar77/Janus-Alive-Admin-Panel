@@ -5,7 +5,7 @@ import SidebarWithHeader from "./components/SidebarWithHeader/SidebarWithHeader"
 import HomeDashboard from "./components/Dash/Home";
 import Article from "./components/UserManagment/UsersTable";
 import TabsSalesPerson from "./components/he/TabsSalesPerson";
-import Fullnews from "./components/he/UpdatePerson";
+// import Fullnews from "./components/he/UpdatePerson";
 import AddCategoryAndSubcategoryForm from "./components/makingcharges/addCatSubcatform.js";
 import PremiumCharges from "./components/Premium/premium";
 import Edit from "./components/editArticle/Edit";
@@ -13,7 +13,8 @@ import AddBlogs from "./components/Add-blogs/AddBlogs.jsx";
 import ManageBlogs from "./components/manage-blogs/Manage-blogs.jsx";
 import EditProduct from "./components/editProducts/Edit.jsx";
 import AdminPanelHomePage from "./components/Dash/Homepage.jsx";
-import EditArticle from "./components/editArticle/Edit";
+import Citystate from "./components/states-city/Data.jsx";
+import AddStateCity from "./components/states-city/AddData.jsx";
 
 function App() {
   const [initialLoad, setInitialLoad] = useState(true);
@@ -47,7 +48,7 @@ function App() {
                     <Route path="/articles" element={<Article />} />
                     <Route path="/category" element={<TabsSalesPerson />} />
                     <Route path="/Backup" element={<PremiumCharges />} />
-                    <Route path="/singlearticle" element={<Fullnews />} />
+                    {/* <Route path="/singlearticle" element={<Fullnews />} /> */}
                     <Route path="/editProduct/:id" element={<EditProduct />} />
                     <Route
                       path="/addcategory"
@@ -57,6 +58,8 @@ function App() {
                     <Route path="/Addblogs" element={<AddBlogs />} />
                     <Route path="/ManageBlogs" element={<ManageBlogs />} />
                     <Route path="/HomePage" element={<AdminPanelHomePage />} />
+                    <Route path="/City" element={<Citystate />} />
+                    <Route path="/AddCity" element={<AddStateCity />} />
                   </>
                 ) : (
                   <>
