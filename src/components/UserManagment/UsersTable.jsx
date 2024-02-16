@@ -144,7 +144,7 @@ const UserTable = () => {
               <Th>Address</Th>
               <Th>Illumination</Th>
               <Th>Category</Th>
-              <Th>City</Th>
+              <Th>State</Th>
               <Th>Created At</Th>
               <Th>Actions</Th>
             </Tr>

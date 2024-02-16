@@ -3,7 +3,7 @@
 // import axios from "axios"; // Import axios for making API requests
 
 // const FullNews = () => {
-//   // const [articles, setArticles] = useState([]);
+//   const [articles, setArticles] = useState([]);
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
 //   const [article, setArticle] = useState(null); // Define the setArticle function
