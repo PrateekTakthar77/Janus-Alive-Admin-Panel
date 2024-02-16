@@ -141,8 +141,6 @@ const ManageBlogs = () => {
           <Thead>
             <Tr>
               <Th>Title</Th>
-              <Th>Category</Th>
-              <Th>Subcategory</Th>
               <Th>Created At</Th>
               <Th>Actions</Th>
             </Tr>
@@ -151,8 +149,6 @@ const ManageBlogs = () => {
             {sortedArticles.map((news) => (
               <Tr key={news._id}>
                 <Td>{news.title}</Td>
-                <Td>{news.category}</Td>
-                <Td>{news.subcategory}</Td>
                 <Td>
                   {new Date(news.createdAt).toLocaleString("en-IN", {
                     day: "numeric",
@@ -171,7 +167,7 @@ const ManageBlogs = () => {
                       size="sm"
                       onClick={() => handleDeleteArticle(news._id)}
                     />
-                    <RouterLink to={`/edit/${news._id}`}>
+                    <RouterLink to={`/editBlog/${news._id}`}>
                       <IconButton
                         icon={<FaEdit />}
                         backgroundColor={"#000"}

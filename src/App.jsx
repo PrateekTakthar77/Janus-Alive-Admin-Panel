@@ -5,7 +5,6 @@ import SidebarWithHeader from "./components/SidebarWithHeader/SidebarWithHeader"
 import HomeDashboard from "./components/Dash/Home";
 import Article from "./components/UserManagment/UsersTable";
 import TabsSalesPerson from "./components/he/TabsSalesPerson";
-// import Fullnews from "./components/he/UpdatePerson";
 import AddCategoryAndSubcategoryForm from "./components/makingcharges/addCatSubcatform.js";
 import PremiumCharges from "./components/Premium/premium";
 import Edit from "./components/editArticle/Edit";
@@ -15,6 +14,7 @@ import EditProduct from "./components/editProducts/Edit.jsx";
 import AdminPanelHomePage from "./components/Dash/Homepage.jsx";
 import Citystate from "./components/states-city/Data.jsx";
 import AddStateCity from "./components/states-city/AddData.jsx";
+import UserQuery from "./components/queries/Queries.jsx";
 
 function App() {
   const [initialLoad, setInitialLoad] = useState(true);
@@ -60,6 +60,7 @@ function App() {
                     <Route path="/HomePage" element={<AdminPanelHomePage />} />
                     <Route path="/City" element={<Citystate />} />
                     <Route path="/AddCity" element={<AddStateCity />} />
+                    <Route path="/quries" element={<UserQuery />} />
                   </>
                 ) : (
                   <>
