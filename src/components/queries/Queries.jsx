@@ -50,7 +50,7 @@ const UserQuery = () => {
             });
             // Show a success toast
             toast({
-                title: "Booking Deleted",
+                title: "Query Deleted",
                 status: "success",
                 duration: 3000, // Duration in milliseconds
                 isClosable: true, // Allow the user to close the toast
