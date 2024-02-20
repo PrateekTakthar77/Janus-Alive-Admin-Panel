@@ -60,7 +60,8 @@ const ManageBlogs = () => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(`${API_BASE_URL}/api/blog`);
-        setArticle(response.data);
+        console.log(response.data.data)
+        setArticle(response.data.data);
         setLoading(false);
       } catch (error) {
         console.error(error);
