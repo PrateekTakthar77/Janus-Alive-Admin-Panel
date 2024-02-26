@@ -800,7 +800,7 @@ function HomeDashboard() {
     "UNIPOLE",
     "BILLBOARD",
     "DIGITAL BILLBOARD",
-    "DOOH",
+    "OOH",
   ];
   const urlcategorydata = [
     "Select URL category",

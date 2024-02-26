@@ -38,6 +38,7 @@ function EditArticle() {
   const [description, setdescription] = useState("");
   const [title, setTitle] = useState("");
   const [endvalue, setendvalue] = useState("");
+  const [urlCat, seturlCat] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
 
   useEffect(() => {
@@ -56,7 +57,11 @@ function EditArticle() {
         Setseotitle(articleData.seotitle);
         Seturlparams(articleData.seodesc);
         setendvalue(articleData.url);
-        Setsubcategory(subcat);
+        Setsubcategory(articleData.subcat);
+        seturlCat(articleData.urlcat);
+        setSelectedCategories(articleData.category);
+        setillumination(articleData.illumination);
+        // selectedState(articleData.state);
       } catch (error) {
         console.error("Error fetching article data:", error);
       }
@@ -154,9 +159,10 @@ function EditArticle() {
         totalsqft: sqft,
         subcat: subcategory,
         url: endvalue,
+        urlcat: urlCat,
       });
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error uploading image:", error.response.data);
       console.log("Response data:", error.response.data);
       toast({
         title: "Updated",
@@ -911,183 +917,32 @@ function EditArticle() {
     "DIGITAL BILLBOARD",
     "DOOH",
   ];
+
+  const urlcategorydata = [
+    "Select URL category",
+    "outdoor-advertising-agency",
+    "metro-advertising-agency",
+    "airport-branding-advertising-agency",
+    "inflight-branding-advertising-agency",
+    "mall-branding-advertising-agency",
+    "transit-media-advertising-agency",
+  ];
+
+  // State change handler
   const handleStateChange = (e) => {
     const state = e.target.value;
     setSelectedState(state);
+    // Update districts based on the selected state
     setDistricts(stateDistricts[state] || []);
   };
+
+  // District change handler
   const handleDistrictChange = (event) => {
     const selectedDistrictValue = event.target.value;
     setSelectedDistrict(selectedDistrictValue);
   };
+
   return (
-    // <div className="form-container">
-    //   <div className="form-content">
-    //     <h2>Upload an Article</h2>
-    //     <form>
-    //       <div className="form-group">
-    //         <label htmlFor="title">Blog Title</label>
-    //         <input
-    //           type="text"
-    //           id="title"
-    //           placeholder="Blog Title"
-    //           className="input-field"
-    //           value={title}
-    //           onChange={(e) => setTitle(e.target.value)}
-    //         />
-    //       </div>
-
-    //       <div className="form-group">
-    //         <label className="desc" htmlFor="quillDescription">
-    //           Blog Description
-    //         </label>
-    //         {/* <ReactQuill
-    //           style={{ height: "400px", marginBottom: "50px" }}
-    //           className="quill"
-    //           value={description}
-    //           onChange={setDescription}
-    //           modules={modules}
-    //           id="quillDescription"
-    //         /> */}
-    //       </div>
-
-    //       {/* <div className="category-container">
-    //         <div className="radio-container" style={{ marginTop: "70px" }}>
-    //           <label>Categories:</label>
-    //           {categories.map((cat) => (
-    //             <div key={cat._id} className="radio-label">
-    //               <input
-    //                 type="checkbox"
-    //                 id={cat.name}
-    //                 value={cat.name}
-    //                 checked={selectedCategories.includes(cat.name)}
-    //                 onChange={handleCategoryChange}
-    //                 className="checkbox-input"
-    //               />
-    //               <label htmlFor={cat.name} className="checkbox-label">
-    //                 {cat.name}
-    //               </label>
-    //             </div>
-    //           ))}
-    //         </div>
-
-    //         <div className="radio-container">
-    //           <label htmlFor="subcategory">Subcategories:</label>
-    //           {availableSubcategories.map((subcat) => (
-    //             <div key={subcat} className="radio-label">
-    //               <input
-    //                 type="checkbox"
-    //                 id={subcat}
-    //                 value={subcat}
-    //                 checked={selectedSubcategories.includes(subcat)}
-    //                 onChange={handleSubcategoryChange}
-    //                 className="checkbox-input"
-    //               />
-    //               <label htmlFor={subcat} className="checkbox-label">
-    //                 {subcat}
-    //               </label>
-    //             </div>
-    //           ))}
-    //         </div>
-    //       </div> */}
-
-    //       <div className="form-group">
-    //         <label htmlFor="seotitle">SEO Title</label>
-    //         <input
-    //           type="text"
-    //           id="seotitle"
-    //           placeholder="SEO Title"
-    //           className="input-field"
-    //           value={seotitle}
-    //           onChange={(e) => setSeotitle(e.target.value)}
-    //         />
-    //       </div>
-
-    //       <div className="form-group">
-    //         <label htmlFor="seodescription">SEO Description</label>
-    //         <input
-    //           type="text"
-    //           id="seodescription"
-    //           placeholder="SEO Description"
-    //           className="input-field"
-    //           value={seodescription}
-    //           onChange={(e) => setSeodescription(e.target.value)}
-    //         />
-    //       </div>
-
-    //       <div className="form-group">
-    //         <label htmlFor="urlparams">URL Params</label>
-    //         <input
-    //           type="text"
-    //           id="urlparams"
-    //           placeholder="URL Params"
-    //           className="input-field"
-    //           value={engtitle}
-    //           onChange={(e) => setEngtitle(e.target.value)}
-    //         />
-    //       </div>
-
-    //       <div className="radio-container">
-    //         <label>Status:</label>
-    //         <div className="radio-group">
-    //           <input
-    //             type="radio"
-    //             id="published"
-    //             name="status"
-    //             value="published"
-    //             checked={status === "published"}
-    //             onChange={() => setStatus("published")}
-    //             className="radio-input"
-    //           />
-    //           <label htmlFor="published" className="radio-labels">
-    //             Published
-    //           </label>
-    //         </div>
-
-    //         <div className="radio-group">
-    //           <input
-    //             type="radio"
-    //             id="draft"
-    //             name="status"
-    //             value="draft"
-    //             checked={status === "draft"}
-    //             onChange={() => setStatus("draft")}
-    //             className="radio-input"
-    //           />
-    //           <label htmlFor="draft" className="radio-labels">
-    //             Draft
-    //           </label>
-    //         </div>
-
-    //         <div className="radio-group">
-    //           <input
-    //             type="radio"
-    //             id="archived"
-    //             name="status"
-    //             value="archived"
-    //             checked={status === "archived"}
-    //             onChange={() => setStatus("archived")}
-    //             className="radio-input"
-    //           />
-    //           <label htmlFor="archived" className="radio-labels">
-    //             Archived
-    //           </label>
-    //         </div>
-    //       </div>
-    //     </form>
-    //     <h2>Upload Image</h2>
-    //     <input
-    //       type="file"
-    //       accept="image/*"
-    //       className="file-input"
-    //       onChange={(e) => setPhoto(e.target.files[0])}
-    //     />
-    //     <button type="button" onClick={uploadImage} className="button">
-    //       Save edited Changes
-    //     </button>
-    //   </div>
-    // </div>
-
     <Box
       width="100%"
       margin="0 auto"
@@ -1138,6 +993,26 @@ function EditArticle() {
               }}
             >
               {Subcategory.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </Flex>
+          <Flex mb="4" alignItems="center">
+            <label style={{ marginRight: "10px", fontWeight: "bold" }}>
+              URL Category:
+            </label>
+            <select
+              value={urlCat}
+              onChange={(e) => seturlCat(e.target.value)}
+              style={{
+                padding: "8px",
+                borderRadius: "3px",
+                border: "1px solid #ccc",
+              }}
+            >
+              {urlcategorydata.map((state) => (
                 <option key={state} value={state}>
                   {state}
                 </option>
